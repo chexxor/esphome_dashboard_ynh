@@ -3,12 +3,11 @@
 
 # Move this file from check_process.default to check_process when you have filled it.
 
-;; Test complet
+;; Test complete
 	; Manifest
 		domain="domain.tld"
 		path="/path"
-		is_public=1
-		language="fr"
+		is_public=0
 		admin="john"
 		password="1Strong-Password"
 		port="666"

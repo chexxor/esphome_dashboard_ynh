@@ -1,15 +1,18 @@
 [Unit]
-Description=Small description of the service
+Description=ESPHome Dashboard
 After=network.target
 
 [Service]
 Type=simple
 User=__APP__
 Group=__APP__
-WorkingDirectory=__FINALPATH__/
-ExecStart=__FINALPATH__/script
+WorkingDirectory=__DATADIR__/
+ExecStart=ESPHOME_DASHBOARD_DEV=__FINALPATH__ esphome dashboard __DATADIR__/config --port __PORT__ --username __USERNAME__ --password __PASSWORD__
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
+RestartForceExitStatus=100
+Restart=on-failure
+RestartSec=5s
 
 # Sandboxing options to harden security
 # Depending on specificities of your service/app, you may need to tweak these
