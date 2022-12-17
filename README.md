@@ -1,8 +1,8 @@
 
 # ESPHome Dashboard
 
-[![Integration level](https://dash.yunohost.org/integration/example.svg)](https://dash.yunohost.org/appci/app/example) ![Working status](https://ci-apps.yunohost.org/ci/badges/example.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/example.maintain.svg)
-[![Install Example app with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=example)
+[![Integration level](https://dash.yunohost.org/integration/esphome_dashboard.svg)](https://dash.yunohost.org/appci/app/esphome_dashboard) ![Working status](https://ci-apps.yunohost.org/ci/badges/esphome_dashboard.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/esphome_dashboard.maintain.svg)
+[![Install ESPHome Dashboard app with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=esphome_dashboard)
 
 *[Lire ce readme en français.](./README_fr.md)*
 
@@ -20,11 +20,11 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 **Shipped version:** 2022.12.17~ynh1
 
-**Demo:** https://demo.example.com
+**Demo:** https://web.esphome.io/
 
 ## Screenshots
 
-![Screenshot of ESPHome Dashboard](./doc/screenshots/example.jpg)
+![Screenshot of ESPHome Dashboard](./doc/screenshots/dashboard_states.png)
 
 ## Disclaimers / important information
 
@@ -49,7 +49,7 @@ To try the testing branch, please proceed like that.
 ``` bash
 sudo yunohost app install https://github.com/chexxor/homeassistant_ynh/tree/testing --debug
 or
-sudo yunohost app upgrade example -u https://github.com/chexxor/homeassistant_ynh/tree/testing --debug
+sudo yunohost app upgrade esphome_dashboard -u https://github.com/chexxor/homeassistant_ynh/tree/testing --debug
 ```
 
 **More info regarding app packaging:** <https://yunohost.org/packaging_apps>

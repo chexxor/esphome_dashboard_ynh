@@ -47,14 +47,18 @@
             },
             {
                 "name": "username",
-                "type": "user"
+                "type": "user",
+                "ask": {
+                    "en": "If you want to protect access to the ESPHome Dashboard, enter the username here.",
+                    "fr": "Si vous souhaitez protéger l’accès à ESPHome Dashboard, saisissez le nom d’utilisateur ici."
+                }
             },
             {
                 "name": "password",
                 "type": "password",
-                "help": {
-                    "en": "Use the help field to add an information for the admin about this question.",
-                    "fr": "Utilisez le champ aide pour ajouter une information à l'intention de l'administrateur à propos de cette question."
+                "ask": {
+                    "en": "If you want a password to access the ESPHome Dashboard, enter it here.",
+                    "fr": "Si vous souhaitez un mot de passe pour accéder au tableau de bord ESPHome, entrez-le ici."
                 }
             }
         ]
