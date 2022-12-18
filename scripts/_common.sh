@@ -87,6 +87,9 @@ myynh_install_esphomedashboard () {
 
 		# install ESPHome
 		ynh_exec_as $app $ynh_node_load_PATH "$final_path/script/build"
+		ynh_exec_as $app rm -rf "$final_path/esphome_dashboard"
+		ynh_exec_as $app cp -r "$final_path/raw_package" "$final_path/esphome_dashboard"
+		ynh_exec_as $app $ynh_node_load_PATH NODE_ENV=production $ynh_npm exec -- rollup -c
 	)
 }
 
