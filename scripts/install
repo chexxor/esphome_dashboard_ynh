@@ -122,7 +122,8 @@ ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 
 # Install ESPHome CLI
 ynh_script_progression --message="Installing ESPHome in a virtual environment..."
-ynh_exec_fully_quiet myynh_install_esphome
+# ynh_exec_fully_quiet myynh_install_esphome
+myynh_install_esphome
 
 #=================================================
 # CREATE DEDICATED USER
