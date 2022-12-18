@@ -78,18 +78,20 @@ myynh_install_esphomedashboard () {
 		# install last version of wheel
 		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$datadir/.cache" install --upgrade wheel
 
-		# install npm dependencies
-		# ynh_exec_as $app "$final_path/bin/npm" install --legacy-peer-deps
-		# ynh_exec_as $app npm install --legacy-peer-deps
-		ynh_exec_as $app $ynh_node_load_PATH $ynh_npm install --legacy-peer-deps
+		pushd $final_path
+			# install npm dependencies
+			# ynh_exec_as $app "$final_path/bin/npm" install --legacy-peer-deps
+			# ynh_exec_as $app npm install --legacy-peer-deps
+			ynh_exec_as $app $ynh_node_load_PATH $ynh_npm install --legacy-peer-deps
 
-		chown -R $app: $final_path
+			chown -R $app: $final_path
 
-		# install ESPHome
-		ynh_exec_as $app $ynh_node_load_PATH "$final_path/script/build"
-		ynh_exec_as $app rm -rf "$final_path/esphome_dashboard"
-		ynh_exec_as $app cp -r "$final_path/raw_package" "$final_path/esphome_dashboard"
-		ynh_exec_as $app $ynh_node_load_PATH NODE_ENV=production $ynh_npm exec -- rollup -c
+			# install ESPHome
+			ynh_exec_as $app $ynh_node_load_PATH "$final_path/script/build"
+			ynh_exec_as $app rm -rf "$final_path/esphome_dashboard"
+			ynh_exec_as $app cp -r "$final_path/raw_package" "$final_path/esphome_dashboard"
+			ynh_exec_as $app $ynh_node_load_PATH NODE_ENV=production $ynh_npm exec -- rollup -c
+		popd
 	# )
 }
 
