@@ -46,8 +46,8 @@ myynh_install_esphome () {
 		set -o nounset
 
 		# add pip
-		# ynh_exec_as $app "$final_path/bin/python3" -m ensurepip
-		ynh_exec_as $app python${python_major_version} -m ensurepip
+		ynh_exec_as $app "$final_path/bin/python3" -m ensurepip
+		# ynh_exec_as $app python${python_major_version} -m ensurepip
 
 		# install last version of wheel
 		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$data_path/.cache" install --upgrade wheel
@@ -72,8 +72,8 @@ myynh_install_esphomedashboard () {
 		set -o nounset
 
 		# add pip
-		# ynh_exec_as $app "$final_path/bin/python3" -m ensurepip
-		ynh_exec_as $app python${python_major_version} -m ensurepip
+		ynh_exec_as $app "$final_path/bin/python3" -m ensurepip
+		# ynh_exec_as $app "$final_path/bin/python${python_major_version}" -m ensurepip
 
 		# install last version of wheel
 		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$data_path/.cache" install --upgrade wheel
