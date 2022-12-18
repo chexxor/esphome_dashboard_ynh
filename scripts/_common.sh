@@ -83,6 +83,8 @@ myynh_install_esphomedashboard () {
 		# ynh_exec_as $app npm install --legacy-peer-deps
 		ynh_exec_as $app $ynh_node_load_PATH $ynh_npm install --legacy-peer-deps
 
+		chown -R $app: $final_path
+
 		# install ESPHome
 		ynh_exec_as $app $ynh_node_load_PATH "$final_path/script/build"
 	)

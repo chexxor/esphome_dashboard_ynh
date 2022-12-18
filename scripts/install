@@ -134,15 +134,16 @@ chown -R $app:www-data "$datadir"
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Installing dependencies..." --weight=5
+ynh_script_progression --message="Installing dependencies..." --weight=10
 
 ynh_install_app_dependencies $pkg_dependencies
 
 # Install Nodejs
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
+ynh_use_nodejs
 
 # Install ESPHome CLI
-ynh_script_progression --message="Installing ESPHome in a virtual environment..." --weight=20
+ynh_script_progression --message="Installing ESPHome in a virtual environment..." --weight=25
 myynh_install_esphome
 
 #=================================================
@@ -168,7 +169,7 @@ chmod -R o-rwx "$final_path"
 chown -R $app:www-data "$final_path"
 
 # Install ESPHome Dashboard
-ynh_script_progression --message="Installing ESPHome Dashboard in a virtual environment..." --weight=10
+ynh_script_progression --message="Installing ESPHome Dashboard in a virtual environment..." --weight=15
 myynh_install_esphomedashboard
 
 #=================================================
