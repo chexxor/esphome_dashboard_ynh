@@ -20,6 +20,8 @@
 # or, if you do not need a custom YNH_PHP_VERSION:
 # php_dependencies="php$YNH_DEFAULT_PHP_VERSION-deb1 php$YNH_DEFAULT_PHP_VERSION-deb2"
 
+nodejs_version=14
+
 # dependencies used by the app (must be on a single line)
 pkg_dependencies="python3 python3-dev python3-venv python3-pip"
 
