@@ -106,7 +106,6 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 ynh_script_progression --message="Configuring system user..." --weight=1
 
 # Create a system user
-# myynh_create_dir "$final_path"
 ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 ynh_system_user_create --username=$app --home_dir="$final_path"
 
@@ -115,15 +114,6 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 #=================================================
 ynh_script_progression --message="Creating a data directory..." --weight=1
 
-### Use these lines if you need to create a directory to store "persistent files" for the application.
-### Usually this directory is used to store uploaded files or any file that won't be updated during
-### an upgrade and that won't be deleted during app removal unless "--purge" option is used.
-### If you're not using these lines:
-###		- Remove the section "BACKUP THE DATA DIR" in the backup script
-###		- Remove the section "RESTORE THE DATA DIRECTORY" in the restore script
-###     - As well as the section "REMOVE DATA DIR" in the remove script
-
-# datadir=/home/yunohost.app/$app
 ynh_app_setting_set --app=$app --key=datadir --value=$datadir
 
 mkdir -p $datadir
@@ -146,23 +136,13 @@ chown -R $app:www-data "$datadir"
 #=================================================
 ynh_script_progression --message="Installing dependencies..." --weight=1
 
-### `ynh_install_app_dependencies` allows you to add any "apt" dependencies to the package.
-### Those deb packages will be installed as dependencies of this package.
-### If you're not using this helper:
-###		- Remove the section "REMOVE DEPENDENCIES" in the remove script
-###		- Remove the variable "pkg_dependencies" in _common.sh
-###		- As well as the section "REINSTALL DEPENDENCIES" in the restore script
-###		- And the section "UPGRADE DEPENDENCIES" in the upgrade script
-
 ynh_install_app_dependencies $pkg_dependencies
 
 # Install Nodejs
-# ynh_script_progression --message="Installing nodejs $nodejs_version..." --weight=1
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 
 # Install ESPHome CLI
-ynh_script_progression --message="Installing ESPHome in a virtual environment..."
-# ynh_exec_fully_quiet myynh_install_esphome
+ynh_script_progression --message="Installing ESPHome in a virtual environment..." --weight=30
 myynh_install_esphome
 
 #=================================================
@@ -189,7 +169,7 @@ chown -R $app:www-data "$final_path"
 
 # Install ESPHome Dashboard
 ynh_script_progression --message="Installing ESPHome Dashboard in a virtual environment..."
-ynh_exec_fully_quiet myynh_install_esphomedashboard
+myynh_install_esphomedashboard
 
 #=================================================
 # PHP-FPM CONFIGURATION
@@ -213,12 +193,12 @@ ynh_exec_fully_quiet myynh_install_esphomedashboard
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-# ynh_script_progression --message="Configuring NGINX web server..." --weight=1
+ynh_script_progression --message="Configuring NGINX web server..." --weight=1
 
 ### `ynh_add_nginx_config` will use the file conf/nginx.conf
 
 # Create a dedicated NGINX config
-# ynh_add_nginx_config
+ynh_add_nginx_config
 
 #=================================================
 # SPECIFIC SETUP
