@@ -143,13 +143,13 @@ ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 ynh_use_nodejs
 
 # Install ESPHome CLI
-ynh_script_progression --message="Installing ESPHome in a virtual environment..." --weight=25
+ynh_script_progression --message="Installing ESPHome in a virtual environment..." --weight=20
 myynh_install_esphome
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=5
+ynh_script_progression --message="Setting up source files..." --weight=10
 
 ### `ynh_setup_source` is used to install an app from a zip or tar.gz file,
 ### downloaded from an upstream source, like a git repository.

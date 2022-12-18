@@ -65,7 +65,7 @@ myynh_install_esphomedashboard () {
 	ynh_exec_as $app python${python_major_version} -m venv "$final_path"
 
 	# Run source in a 'sub shell'
-	(
+	# (
 		# activate the virtual environment
 		set +o nounset
 		source "$final_path/bin/activate"
@@ -90,7 +90,7 @@ myynh_install_esphomedashboard () {
 		ynh_exec_as $app rm -rf "$final_path/esphome_dashboard"
 		ynh_exec_as $app cp -r "$final_path/raw_package" "$final_path/esphome_dashboard"
 		ynh_exec_as $app $ynh_node_load_PATH NODE_ENV=production $ynh_npm exec -- rollup -c
-	)
+	# )
 }
 
 # Upgrade the virtual environment directory
