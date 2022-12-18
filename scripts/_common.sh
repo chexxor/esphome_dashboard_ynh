@@ -50,10 +50,10 @@ myynh_install_esphome () {
 		# ynh_exec_as $app python${python_major_version} -m ensurepip
 
 		# install last version of wheel
-		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$data_path/.cache" install --upgrade wheel
+		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$datadir/.cache" install --upgrade wheel
 
 		# install ESPHome
-		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$data_path/.cache" install --upgrade tornado esphome
+		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$datadir/.cache" install --upgrade tornado esphome
 		ynh_exec_as $app python${python_major_version} --cache-dir "$datadir/.cache" install --upgrade tornado esphome
 	)
 }
@@ -76,7 +76,7 @@ myynh_install_esphomedashboard () {
 		# ynh_exec_as $app "$final_path/bin/python${python_major_version}" -m ensurepip
 
 		# install last version of wheel
-		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$data_path/.cache" install --upgrade wheel
+		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$datadir/.cache" install --upgrade wheel
 
 		# install ESPHome
 		ynh_exec_as $app "$final_path/script/build"

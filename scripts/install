@@ -59,7 +59,7 @@ ynh_script_progression --message="Validating installation parameters..." --weigh
 ### If the app provides an internal web server (or uses another application server such as uWSGI), the final path should be "/opt/yunohost/$app"
 # final_path=/var/www/$app
 final_path="/opt/yunohost/$app"
-# data_path="/home/yunohost.app/$app"
+datadir=/home/yunohost.app/$app
 log_file="/var/log/$app/$app.log"
 test ! -e "$final_path" || ynh_die --message="This path already contains a folder"
 
@@ -74,7 +74,6 @@ ynh_script_progression --message="Storing installation settings..." --weight=1
 ynh_app_setting_set --app=$app --key=domain --value=$domain
 ynh_app_setting_set --app=$app --key=path --value=$path_url
 ynh_app_setting_set --app=$app --key=username --value=$username
-# ynh_app_setting_set --app=$app --key=data_path --value="$data_path"
 ynh_app_setting_set --app=$app --key=log_file --value="$log_file"
 
 #=================================================
@@ -107,6 +106,8 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 ynh_script_progression --message="Configuring system user..." --weight=1
 
 # Create a system user
+myynh_create_dir "$final_path"
+ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 ynh_system_user_create --username=$app --home_dir="$final_path"
 
 #=================================================
@@ -141,10 +142,6 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 ### `ynh_setup_source` is used to install an app from a zip or tar.gz file,
 ### downloaded from an upstream source, like a git repository.
 ### `ynh_setup_source` use the file conf/app.src
-
-myynh_create_dir "$final_path"
-# myynh_create_dir "$data_path"
-ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$final_path"
@@ -211,7 +208,7 @@ ynh_script_progression --message="Creating a data directory..." --weight=1
 ###		- Remove the section "RESTORE THE DATA DIRECTORY" in the restore script
 ###     - As well as the section "REMOVE DATA DIR" in the remove script
 
-datadir=/home/yunohost.app/$app
+# datadir=/home/yunohost.app/$app
 ynh_app_setting_set --app=$app --key=datadir --value=$datadir
 
 mkdir -p $datadir
