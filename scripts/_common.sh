@@ -54,7 +54,7 @@ myynh_install_esphome () {
 
 		# install ESPHome
 		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$data_path/.cache" install --upgrade tornado esphome
-		ynh_exec_as $app python${python_major_version} --cache-dir "$data_path/.cache" install --upgrade tornado esphome
+		ynh_exec_as $app python${python_major_version} --cache-dir "$datadir/.cache" install --upgrade tornado esphome
 	)
 }
 
