@@ -29,7 +29,8 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 ## Disclaimers / important information
 
 * Known limitations, constraints or stuff not working:
-    * Does not use single-sign on or LDAP integration
+    * Does not use single-sign on or LDAP integration.
+    * Fail2Ban is not yet enabled. Please submit a PR.
 
 ## Documentation and resources
 
