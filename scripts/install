@@ -75,6 +75,7 @@ ynh_app_setting_set --app=$app --key=domain --value=$domain
 ynh_app_setting_set --app=$app --key=path --value=$path_url
 ynh_app_setting_set --app=$app --key=username --value=$username
 ynh_app_setting_set --app=$app --key=log_file --value="$log_file"
+# ynh_app_setting_set --app=$app --key=skipped_uris --value="/static/"
 
 #=================================================
 # STANDARD MODIFICATIONS
