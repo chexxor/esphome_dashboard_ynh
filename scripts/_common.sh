@@ -21,7 +21,9 @@
 # php_dependencies="php$YNH_DEFAULT_PHP_VERSION-deb1 php$YNH_DEFAULT_PHP_VERSION-deb2"
 
 nodejs_version=18
-py_app_version=3.11.1
+# py_app_version=3.11.1
+python_version="3.7"
+python_major_version=3
 
 # dependencies used by the app (must be on a single line)
 pkg_dependencies="python3 python3-dev python3-venv python3-pip"
@@ -33,7 +35,8 @@ pkg_dependencies="python3 python3-dev python3-venv python3-pip"
 # Install/Upgrade ESPHome in virtual environement
 myynh_install_esphome () {
 	# Create the virtual environment
-	ynh_exec_as $app $py_app_version -m venv --without-pip "$final_path"
+	# ynh_exec_as $app $py_app_version -m venv --without-pip "$final_path"
+	ynh_exec_as $app python${python_major_version} -m venv "$final_path"
 
 	# Run source in a 'sub shell'
 	(
@@ -43,20 +46,23 @@ myynh_install_esphome () {
 		set -o nounset
 
 		# add pip
-		ynh_exec_as $app "$final_path/bin/python3" -m ensurepip
+		# ynh_exec_as $app "$final_path/bin/python3" -m ensurepip
+		ynh_exec_as $app python${python_major_version} -m ensurepip
 
 		# install last version of wheel
 		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$data_path/.cache" install --upgrade wheel
 
 		# install ESPHome
-		ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$data_path/.cache" install --upgrade tornado esphome
+		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$data_path/.cache" install --upgrade tornado esphome
+		ynh_exec_as $app python${python_major_version} --cache-dir "$data_path/.cache" install --upgrade tornado esphome
 	)
 }
 
 # Install/Upgrade ESPHome Dashboard in virtual environement
 myynh_install_esphomedashboard () {
 	# Create the virtual environment
-	ynh_exec_as $app $py_app_version -m venv --without-pip "$final_path"
+	# ynh_exec_as $app $py_app_version -m venv --without-pip "$final_path"
+	ynh_exec_as $app python${python_major_version} -m venv "$final_path"
 
 	# Run source in a 'sub shell'
 	(
@@ -66,7 +72,8 @@ myynh_install_esphomedashboard () {
 		set -o nounset
 
 		# add pip
-		ynh_exec_as $app "$final_path/bin/python3" -m ensurepip
+		# ynh_exec_as $app "$final_path/bin/python3" -m ensurepip
+		ynh_exec_as $app python${python_major_version} -m ensurepip
 
 		# install last version of wheel
 		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$data_path/.cache" install --upgrade wheel
@@ -78,7 +85,8 @@ myynh_install_esphomedashboard () {
 
 # Upgrade the virtual environment directory
 myynh_upgrade_venv_directory () {
-	ynh_exec_as $app $py_app_version -m venv --upgrade "$final_path"
+	# ynh_exec_as $app $py_app_version -m venv --upgrade "$final_path"
+	ynh_exec_as $app python${python_major_version} -m venv --upgrade "$final_path"
 }
 
 # Create directory only if not already exists (path in argument)
