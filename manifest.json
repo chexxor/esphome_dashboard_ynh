@@ -48,6 +48,7 @@
             {
                 "name": "username",
                 "type": "user",
+                "optional": true,
                 "ask": {
                     "en": "If you want to protect access to the ESPHome Dashboard, enter the username here.",
                     "fr": "Si vous souhaitez protéger l’accès à ESPHome Dashboard, saisissez le nom d’utilisateur ici."
@@ -56,6 +57,7 @@
             {
                 "name": "password",
                 "type": "password",
+                "optional": true,
                 "ask": {
                     "en": "If you want a password to access the ESPHome Dashboard, enter it here.",
                     "fr": "Si vous souhaitez un mot de passe pour accéder au tableau de bord ESPHome, entrez-le ici."

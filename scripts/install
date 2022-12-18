@@ -142,7 +142,7 @@ ynh_install_app_dependencies $pkg_dependencies
 ynh_exec_warn_less ynh_install_nodejs --nodejs_version=$nodejs_version
 
 # Install ESPHome CLI
-ynh_script_progression --message="Installing ESPHome in a virtual environment..." --weight=30
+ynh_script_progression --message="Installing ESPHome in a virtual environment..." --weight=20
 myynh_install_esphome
 
 #=================================================
@@ -168,7 +168,7 @@ chmod -R o-rwx "$final_path"
 chown -R $app:www-data "$final_path"
 
 # Install ESPHome Dashboard
-ynh_script_progression --message="Installing ESPHome Dashboard in a virtual environment..."
+ynh_script_progression --message="Installing ESPHome Dashboard in a virtual environment..." --weight=10
 myynh_install_esphomedashboard
 
 #=================================================

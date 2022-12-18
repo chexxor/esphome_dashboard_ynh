@@ -78,6 +78,9 @@ myynh_install_esphomedashboard () {
 		# install last version of wheel
 		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$datadir/.cache" install --upgrade wheel
 
+		# install npm dependencies
+		ynh_exec_as $app "$final_path/bin/npm" install --legacy-peer-deps
+
 		# install ESPHome
 		ynh_exec_as $app "$final_path/script/build"
 	)
