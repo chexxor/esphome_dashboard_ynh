@@ -7,9 +7,8 @@ Type=simple
 User=__APP__
 Group=__APP__
 Environment="__YNH_NODE_LOAD_PATH__"
-Environment=ESPHOME_DASHBOARD_DEV=__FINALPATH__
 WorkingDirectory=__FINALPATH__/
-ExecStart=__FINALPATH__/bin/esphome dashboard __DATADIR__/config --port __PORT__ --username __USERNAME__ --password __PASSWORD__
+ExecStart=__FINALPATH__/bin/esphome dashboard __DATADIR__/config --port=__PORT__ --username=__USERNAME__ --password=__PASSWORD__
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
 RestartForceExitStatus=100
