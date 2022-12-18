@@ -37,8 +37,8 @@
             {
                 "name": "path",
                 "type": "path",
-                "example": "/example",
-                "default": "/example"
+                "example": "/dashboard",
+                "default": "/"
             },
             {
                 "name": "is_public",
