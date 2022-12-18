@@ -62,17 +62,17 @@ myynh_install_esphome () {
 myynh_install_esphomedashboard () {
 	# Create the virtual environment
 	# ynh_exec_as $app $py_app_version -m venv --without-pip "$final_path"
-	ynh_exec_as $app python${python_major_version} -m venv "$final_path"
+	# ynh_exec_as $app python${python_major_version} -m venv "$final_path"
 
 	# Run source in a 'sub shell'
 	# (
 		# activate the virtual environment
-		set +o nounset
-		source "$final_path/bin/activate"
-		set -o nounset
+		# set +o nounset
+		# source "$final_path/bin/activate"
+		# set -o nounset
 
 		# add pip
-		ynh_exec_as $app "$final_path/bin/python3" -m ensurepip
+		# ynh_exec_as $app "$final_path/bin/python3" -m ensurepip
 		# ynh_exec_as $app "$final_path/bin/python${python_major_version}" -m ensurepip
 
 		# install last version of wheel
