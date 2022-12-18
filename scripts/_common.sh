@@ -79,10 +79,12 @@ myynh_install_esphomedashboard () {
 		# ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$datadir/.cache" install --upgrade wheel
 
 		# install npm dependencies
-		ynh_exec_as $app "$final_path/bin/npm" install --legacy-peer-deps
+		# ynh_exec_as $app "$final_path/bin/npm" install --legacy-peer-deps
+		# ynh_exec_as $app npm install --legacy-peer-deps
+		ynh_exec_as $app $ynh_node_load_PATH $ynh_npm install --legacy-peer-deps
 
 		# install ESPHome
-		ynh_exec_as $app "$final_path/script/build"
+		ynh_exec_as $app $ynh_node_load_PATH "$final_path/script/build"
 	)
 }
 
