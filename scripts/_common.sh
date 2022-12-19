@@ -31,7 +31,7 @@ myynh_install_esphome () {
 		ynh_exec_as $app "$final_path/bin/python3" -m ensurepip
 
 		# install ESPHome
-		ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$datadir/.cache" install --upgrade tornado esphome
+		ynh_exec_as $app "$final_path/bin/pip3" --cache-dir "$datadir/.cache" install --upgrade tornado esphome wheel
 	)
 }
 
