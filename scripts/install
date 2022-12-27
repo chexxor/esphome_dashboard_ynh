@@ -102,7 +102,6 @@ chmod 750 "$datadir"
 chmod -R o-rwx "$datadir"
 chown -R $app:www-data "$datadir"
 
-
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
