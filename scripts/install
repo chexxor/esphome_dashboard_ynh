@@ -140,6 +140,10 @@ chown -R $app:www-data "$final_path"
 ynh_script_progression --message="Installing ESPHome Dashboard in a virtual environment..." --weight=15
 ynh_exec_fully_quiet myynh_install_esphomedashboard
 
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
+
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
